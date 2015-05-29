@@ -1,13 +1,20 @@
 #include "flat_button.hpp"
+#include "flat_colors.hpp"
 
-flat_button::flat_button(int x, int y, int w, int h, const std::string &label)
-    : Fl_Button(x, y, w, h, label.c_str())
+flat_button::flat_button(int x, int y, int w, int h, const char *label)
+    : Fl_Button(x, y, w, h, label)
 {
+    // box style & color
     box(FL_FLAT_BOX);
     down_box(FL_FLAT_BOX);
-    color(fl_rgb_color(60, 120, 220));
-    down_color(fl_rgb_color(100, 160, 220));
-    labelcolor(fl_rgb_color(255, 255, 255));
+    color(flat_blue);
+    down_color(flat_dark_blue);
+
+    // label
+    labelsize(12);
+    labelcolor(flat_white);
+
+    // tab focus
     clear_visible_focus();
 }
 
@@ -16,11 +23,11 @@ int flat_button::handle(int event)
     switch (event)
     {
     case FL_ENTER:
-        color(fl_rgb_color(80, 140, 220));
+        color(flat_light_blue);
         redraw();
         return 1;
     case FL_LEAVE:
-        color(fl_rgb_color(60, 120, 220));
+        color(flat_blue);
         redraw();
         return 0;
     default:
