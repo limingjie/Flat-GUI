@@ -1,6 +1,6 @@
 #include "flat_button.hpp"
 
-flat_button::flat_button(int x, int y, int w, int h, std::string label)
+flat_button::flat_button(int x, int y, int w, int h, const std::string &label)
     : Fl_Button(x, y, w, h, label.c_str())
 {
     box(FL_FLAT_BOX);

@@ -25,14 +25,17 @@ all: flatgui$(X)
 demo.o: demo.cpp mainwindow.hpp
 	$(CXX) $(CXXFLAGS) $(FLTK_CXXFLAGS) -c demo.cpp
 
-mainwindow.o: mainwindow.cpp mainwindow.hpp
+mainwindow.o: mainwindow.cpp mainwindow.hpp flat_window.hpp flat_button.hpp
 	$(CXX) $(CXXFLAGS) $(FLTK_CXXFLAGS) -c mainwindow.cpp
 
 flat_button.o: flat_button.cpp flat_button.hpp
 	$(CXX) $(CXXFLAGS) $(FLTK_CXXFLAGS) -c flat_button.cpp
 
-flatgui$(X): demo.o mainwindow.o flat_button.o
-	$(CXX) -o flatgui$(X) demo.o mainwindow.o flat_button.o $(FLTK_LDSTATIC)
+flat_window.o: flat_window.cpp flat_window.hpp
+	$(CXX) $(CXXFLAGS) $(FLTK_CXXFLAGS) -c flat_window.cpp
+
+flatgui$(X): demo.o mainwindow.o flat_window.o flat_button.o
+	$(CXX) -o flatgui$(X) demo.o mainwindow.o flat_window.o flat_button.o $(FLTK_LDSTATIC)
 
 clean:
 	rm -f *.o

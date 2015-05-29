@@ -2,14 +2,8 @@
 
 #include <string>
 
-MainWindow::MainWindow(int w, int h, const char *label)
-    : Fl_Window(w, h, label)
-{
-    createUI();
-}
-
 MainWindow::MainWindow(int x, int y, int w, int h, const char *label)
-    : Fl_Window(x, y, w, h, label)
+    : flat_window(x, y, w, h, label)
 {
     createUI();
 }
