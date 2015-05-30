@@ -1,3 +1,12 @@
+//
+// mainwindow.hpp
+//
+// May 30, 2015 - by Mingjie Li (limingjie@outlook.com)
+// https://github.com/limingjie/libcsvmm
+//
+#ifndef __MAIN_WINDOW__
+#define __MAIN_WINDOW__
+
 #include <FL/Fl.H>
 #include <FL/Fl_Input.H>
 #include <FL/Fl_Text_Buffer.H>
@@ -5,7 +14,6 @@
 
 #include "flat_window.hpp"
 #include "flat_button.hpp"
-#include "flat_label.hpp"
 
 class MainWindow : public flat_window
 {
@@ -27,3 +35,5 @@ public:
     MainWindow(int x, int y, int w, int h, const char *label = 0);
     ~MainWindow();
 };
+
+#endif //__MAIN_WINDOW__

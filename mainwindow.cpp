@@ -1,6 +1,5 @@
 #include "mainwindow.hpp"
 #include "flat_label.hpp"
-#include "flat_button.hpp"
 
 #define connect(widget, method) \
    widget->callback(reinterpret_cast<void(*)(Fl_Widget*, void*)>(method), this)
@@ -24,7 +23,7 @@ void MainWindow::createUI()
 {
     consoleBuffer = new Fl_Text_Buffer();
 
-    flat_label *label = new flat_label(10, 35, 60, 25, "Branch");
+    new flat_label(10, 35, 60, 25, "Branch");
 
     branchInput = new Fl_Input(80, 35, 420, 25);
 
@@ -32,7 +31,7 @@ void MainWindow::createUI()
     branchButton->shortcut(FL_Enter);
     connect(branchButton, onButtonClick);
 
-    flat_label *label1 = new flat_label(10, 70, 60, 25, "Members");
+    new flat_label(10, 70, 60, 25, "Members");
 
     memberTextbox = new Fl_Text_Display(80, 70, 510, 220);
     memberTextbox->buffer(consoleBuffer);

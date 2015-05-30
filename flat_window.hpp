@@ -1,8 +1,14 @@
-#include <FL/Fl.H>
-#include <FL/Fl_Window.H>
-
+//
+// flat_window.hpp
+//
+// May 30, 2015 - by Mingjie Li (limingjie@outlook.com)
+// https://github.com/limingjie/libcsvmm
+//
 #ifndef __FLAT_WINDOW__
 #define __FLAT_WINDOW__
+
+#include <FL/Fl.H>
+#include <FL/Fl_Window.H>
 
 class flat_window : public Fl_Window
 {
