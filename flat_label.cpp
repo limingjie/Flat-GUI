@@ -1,5 +1,5 @@
 #include "flat_label.hpp"
-#include "flat_colors.hpp"
+#include "flat_common.hpp"
 
 flat_label::flat_label(int x, int y, int w, int h, const char *label)
     : Fl_Box(x, y, w, h, label)
@@ -8,5 +8,5 @@ flat_label::flat_label(int x, int y, int w, int h, const char *label)
 
     // label
     labelsize(12);
-    labelcolor(flat_white);
+    labelcolor(flat_black);
 }

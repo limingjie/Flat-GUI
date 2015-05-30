@@ -1,5 +1,5 @@
 #include "flat_button.hpp"
-#include "flat_colors.hpp"
+#include "flat_common.hpp"
 
 flat_button::flat_button(int x, int y, int w, int h, const char *label)
     : Fl_Button(x, y, w, h, label)
@@ -18,19 +18,34 @@ flat_button::flat_button(int x, int y, int w, int h, const char *label)
     clear_visible_focus();
 }
 
+void flat_button::activate()
+{
+    color(flat_blue);
+    Fl_Button::activate();
+}
+
+void flat_button::deactivate()
+{
+    color(flat_gray);
+    Fl_Button::deactivate();
+}
+
 int flat_button::handle(int event)
 {
-    switch (event)
+    if (active())
     {
-    case FL_ENTER:
-        color(flat_light_blue);
-        redraw();
-        return 1;
-    case FL_LEAVE:
-        color(flat_blue);
-        redraw();
-        return 0;
-    default:
-        return Fl_Button::handle(event);
+        switch (event)
+        {
+        case FL_ENTER:
+            color(flat_light_blue);
+            redraw();
+            return 1;
+        case FL_LEAVE:
+            color(flat_blue);
+            redraw();
+            return 0;
+        }
     }
+
+    return Fl_Button::handle(event);
 }

@@ -12,6 +12,9 @@
 
 class flat_window : public Fl_Window
 {
+private:
+    void draw();
+
 public:
     flat_window(int x, int y, int w, int h, const char *label = 0);
 };

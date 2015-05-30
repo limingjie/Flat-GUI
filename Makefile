@@ -22,23 +22,26 @@ CXXFLAGS       = -Wall -g -O2 -std=c++0x
 
 all: flatgui$(X)
 
-demo.o: demo.cpp mainwindow.hpp
+demo.o: demo.cpp window.hpp
 	$(CXX) -c $(CXXFLAGS) $(FLTK_CXXFLAGS) -o demo.o demo.cpp
 
-mainwindow.o: mainwindow.cpp mainwindow.hpp flat_window.hpp flat_button.hpp
-	$(CXX) -c $(CXXFLAGS) $(FLTK_CXXFLAGS) -o mainwindow.o mainwindow.cpp
+window.o: window.cpp window.hpp flat_window.hpp flat_button.hpp
+	$(CXX) -c $(CXXFLAGS) $(FLTK_CXXFLAGS) -o window.o window.cpp
 
-flat_label.o: flat_label.cpp flat_label.hpp flat_colors.hpp
+flat_input.o: flat_input.cpp flat_input.hpp flat_common.hpp
+	$(CXX) -c $(CXXFLAGS) $(FLTK_CXXFLAGS) -o flat_input.o flat_input.cpp
+
+flat_label.o: flat_label.cpp flat_label.hpp flat_common.hpp
 	$(CXX) -c $(CXXFLAGS) $(FLTK_CXXFLAGS) -o flat_label.o flat_label.cpp
 
-flat_button.o: flat_button.cpp flat_button.hpp flat_colors.hpp
+flat_button.o: flat_button.cpp flat_button.hpp flat_common.hpp
 	$(CXX) -c $(CXXFLAGS) $(FLTK_CXXFLAGS) -o flat_button.o flat_button.cpp
 
-flat_window.o: flat_window.cpp flat_window.hpp flat_colors.hpp
+flat_window.o: flat_window.cpp flat_window.hpp flat_common.hpp
 	$(CXX) -c $(CXXFLAGS) $(FLTK_CXXFLAGS) -o flat_window.o flat_window.cpp
 
-flatgui$(X): demo.o mainwindow.o flat_window.o flat_button.o flat_label.o
-	$(CXX) -o flatgui$(X) demo.o mainwindow.o flat_window.o flat_button.o flat_label.o $(FLTK_LDSTATIC)
+flatgui$(X): demo.o window.o flat_window.o flat_button.o flat_label.o flat_input.o
+	$(CXX) -o flatgui$(X) demo.o window.o flat_window.o flat_button.o flat_label.o flat_input.o $(FLTK_LDSTATIC)
 
 clean:
 	rm -f *.o

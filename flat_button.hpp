@@ -15,6 +15,8 @@ private:
     int handle(int event);
 
 public:
+    void activate();
+    void deactivate();
     flat_button(int x, int y, int w, int h, const char *label = 0);
 };
 
