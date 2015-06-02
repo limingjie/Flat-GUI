@@ -2,7 +2,7 @@
 // flat_colors.hpp
 //
 // May 30, 2015 - by Mingjie Li (limingjie@outlook.com)
-// https://github.com/limingjie/libcsvmm
+// https://github.com/limingjie
 //
 #ifndef __FLAT_COLORS__
 #define __FLAT_COLORS__
